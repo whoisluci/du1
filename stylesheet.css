@@ -2,27 +2,28 @@
 /* fonts */
 
 @font-face {
-    font-family: BungeeShade;
+    font-family: "BungeeShade";
     src: url(fonts/Bungee_Shade/BungeeShade-Regular.ttf);
 }
 
 @font-face {
-    font-family: BungeeOutline;
+    font-family: "BungeeOutline";
     src: url(fonts/Bungee_Outline/BungeeOutline-Regular.ttf);
 }
 
 @font-face {
-    font-family: BarlowCondensedLight;
+    font-family: "BarlowCondensedLight";
     src: url(fonts/Barlow_Condensed/BarlowCondensed-Light.ttf);
 }
 
 @font-face {
-    font-family: BarlowCondensed;
+    font-family: "BarlowCondensed";
     src: url(fonts/Barlow_Condensed/BarlowCondensed-SemiBold.ttf);
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
@@ -30,15 +31,13 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 0;
-
-    /* overflow-x: hidden; */
+    background-attachment: fixed;
 }
 
 main {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    margin: 20px auto;
+    margin: 8vw 5vw;
 }
 
 /* header */
@@ -97,8 +96,8 @@ section {
     background-color: rgba(0, 0, 0, 0.5);
 
     display: grid;
-    grid-template-columns: auto 10px 233px 10px 233px 10px;
-    grid-template-rows: 60px repeat(2, 35px) 30px 80px 80px 155px 10px 45px 210px 25px 240px;
+    grid-template-columns: auto 10px 14.5vw 10px 14.5vw 10px;
+    grid-template-rows: 5vw repeat(2, 3vw) 2.5vw 7vw 5vw 14.2vw 1.0vw 5vw 17vw 1.2vw 240px;
     padding: 20px;
 }
 
@@ -133,12 +132,14 @@ section p:nth-of-type(2) {
 } 
 /* bilder */
 section img:first-of-type {
-    height: 475px;
+    height: 39.7vw;
+    max-width: 200%;
     border-radius: 30px 30px 0 0;
     grid-row: 1 / 12;
     grid-column: 3 / span 2;
     z-index: 2;
     position: relative;
+    transition: opacity 1s;
 }
 
 section img:nth-of-type(2) {
@@ -148,7 +149,6 @@ section img:nth-of-type(2) {
     border-radius: 30px 30px 0 0;
     z-index: 1;
     object-fit: contain;
-    transition: ease .1s;
 }
 
 section img:first-of-type:hover {
@@ -181,6 +181,7 @@ section:first-of-type ol:first-of-type{
     grid-column: 3;
     border-radius: 0 0 0 30px;
     margin: 0 0 5px 0;
+    padding-left: 28px;
 }
 
 section:first-of-type ol:nth-of-type(2) {
@@ -194,7 +195,7 @@ section:first-of-type ol{
     background-color: rgb(153,150,123);
 }
 
-p, ul, ol {
+p, ul, ol, h5 {
     color: white;
     font-family: "BarlowCondensedLight";
 }
@@ -290,8 +291,8 @@ section:nth-of-type(2) article p:nth-of-type(3) {
 }
 
 section:nth-of-type(2) article p:nth-of-type(4) {
-    bottom: -165px;
-    left: -150px;
+    bottom: -170px;
+    left: -100px;
 }
 
 section:nth-of-type(2) article p:nth-of-type(5) {
@@ -322,7 +323,9 @@ section:nth-of-type(2) ol:nth-of-type(2) {
     background-color: #4a6e76;
 }
 
-
+section:nth-of-type(2) h4:first-of-type {
+    grid-column: 3;
+}
 
 ul {
     list-style: none;
@@ -351,13 +354,20 @@ h4 {
     font-family: "BarlowCondensed";
 }
 
+h5 {
+    font-weight: lighter;
+    padding: 10px 20px;
+    letter-spacing: 0.5px;
+}
+
+
 /* media queries */
 
 @media (max-width: 500px) and (min-width: 400px) {
    /* phone */
 
     body {
-        background-image: url(images/phone-kendrick-lamar.jpg);
+        background-image: url(./images/phone-kendrick-lamar.jpg);
         background-size: cover;
         background-position: center;
         margin: auto;
@@ -365,6 +375,7 @@ h4 {
 
     main {
         background-color: rgba(0, 0, 0, 0);
+        margin: 0;
     }
     
     header {
@@ -376,9 +387,7 @@ h4 {
 
     header h1 {
         text-align: center;
-        font-size: 14vw;
-        /* margin: auto; */
-        padding: 20px 0;
+        font-size: 13.5vw;
     }
 
     nav a {
@@ -391,9 +400,9 @@ h4 {
         height: 60px;
     }
 
-    section {
+    section:first-of-type{
         grid-template-columns: 1fr 10px 1fr;
-        grid-template-rows: 83vw 2vw 10vw 37.5vw 10vw 9vw 8vw 5vw 5vw 14.5vw 10vw 40vw 45vw 45vw;
+        grid-template-rows: 83vw 2vw 10vw 28vw 10vw 9vw 8vw 5vw 5vw 14.5vw 10vw 45vw 45vw 45vw
     } 
 
     section img:first-of-type {
@@ -401,14 +410,12 @@ h4 {
         max-width: 100%;
         border-radius: 30px 30px 0 0;
         grid-row: 1;
-        grid-column: 1 / 5;
+        grid-column: 1 / 6;
+        pointer-events: none;
     }
 
     section img:nth-of-type(2) {
-        grid-row: 1;
-        grid-column: 1 / 6;
-        height: 83vw;
-        max-width: 100%;
+       display: none;
     }
 
     section h4:first-of-type {
@@ -429,12 +436,16 @@ h4 {
         font-size: 4vw;
     }
 
-    section:first-of-type ol:first-of-type{
+    section:nth-of-type(2) h4:first-of-type {
+        grid-column: 1 / 2;
+    }
+
+    section:first-of-type ol:first-of-type {
         grid-row: 4 / span 2;
         grid-column: 1;
         border-radius: 0 0 0 30px;
         margin: 0 0 5px 0;
-        font-size: 3.6vw;
+        font-size: 3.3vw;
         padding-bottom: 0.5vw;
         padding-left: 34px;
     }
@@ -444,7 +455,7 @@ h4 {
         grid-column: 3;
         border-radius: 0 0 30px 0;
         margin: 0 0 5px 0;
-        font-size: 3.6vw;
+        font-size: 3.3vw;
         padding-bottom: 0.5vw;
         padding-left: 34px;
     }
@@ -484,7 +495,7 @@ h4 {
         grid-row: 13 / 16; 
     }
 
-    section article p {
+    section article p, h5 {
         font-size: 3.3vw;
     }
     
@@ -507,13 +518,48 @@ h4 {
         grid-column: 2;
         grid-row: 2;
         z-index: 1;
-        bottom: -160px;
+        bottom: -35vw;
     }
 
     section article p:nth-of-type(5) {
         grid-column: 3;
         grid-row: 2;
     }    
+
+    section:nth-of-type(2){
+        grid-template-columns: 1fr 10px 1fr;
+        grid-template-rows: 83vw 2vw 10vw 37.5vw 10vw 9vw 8vw 5vw 5vw 14.5vw 10vw 45vw 45vw 45vw;
+    } 
+
+    section:nth-of-type(2) article p:first-of-type{
+        grid-column: 1 / span 2;
+        grid-row: 1;
+    }
+    
+    section:nth-of-type(2) article p:nth-of-type(2) {
+        grid-column: 3;
+    }
+    
+    section:nth-of-type(2) article p:nth-of-type(3) {
+        grid-column: 1 / span 2;
+    }
+    
+    section:nth-of-type(2) article p:nth-of-type(4) {
+        bottom: -33vw;
+        left: -120px;
+    }
+
+    section:nth-of-type(2) ol:first-of-type {
+        grid-row: 4;
+        grid-column: 1;
+        font-size: 3.3vw;
+    }
+
+    section:nth-of-type(2) ol:nth-of-type(2) {
+        grid-row: 4;
+        grid-column: 3;
+        font-size: 3.3vw;
+    }
 }
 
 @media (min-width: 800px) and (max-width:900px) {
@@ -531,6 +577,10 @@ h4 {
 
     h4 {
         font-size: 20px;
+    }
+
+    h5 {
+        font-size: 14px;
     }
 
     ol {
@@ -566,7 +616,7 @@ h4 {
          font-size: 1.7vw;
      }
 
-     ol {
+     ol, h5 {
         font-size: 1.5vw;
      }
 
@@ -594,6 +644,10 @@ h4 {
          font-size: 20.4px;
      }
 
+     h5 {
+        font-size: 18px;
+     }
+
      ol {
         font-size: 18px;
      }
@@ -602,7 +656,27 @@ h4 {
         font-size: 19.2px;
      }
 
-     /* main {
+     body {
+        display: flex;
+        justify-content: center;
+     }
+
+     main {
         max-width: 1200px;
-     } */
+        margin: 100px 100px;
+     }
+
+     section {
+        grid-template-columns: auto 10px 230px 10px 230px 10px;
+        grid-template-rows: 60px repeat(2, 35px) 30px 80px 80px 155px 10px 45px 210px 10px 240px;
+     }
+
+     section img:first-of-type,
+     section img:nth-of-type(2) {
+        height: 475px;
+     }
+
+     section img:nth-of-type(2) {
+        width: 196%;
+     }
 }
