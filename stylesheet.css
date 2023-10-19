@@ -28,7 +28,6 @@
 
 body {
     background-image: url(images/Kendrick-Lamar.jpg);
-    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -97,7 +96,7 @@ section {
 
     display: grid;
     grid-template-columns: 40vw 10px 20vw 10px 20vw 10px;
-    grid-template-rows: 5vw repeat(2, 3vw) 2.5vw 7vw 5vw 15.5vw 1.0vw 5vw 17vw 1.2vw 240px;
+    grid-template-rows: 5vw repeat(2, 3vw) 2.5vw 7vw 5vw 15.5vw 1.0vw 5vw 18vw 1.2vw 240px;
     padding: 20px;
 }
 
@@ -137,8 +136,7 @@ section img:first-of-type {
     grid-row: 1 / 8;
     grid-column: 3 / span 2;
     z-index: 2;
-    position: relative;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 }
 
 section img:nth-of-type(2) {
@@ -543,6 +541,8 @@ h5 {
     section:nth-of-type(2) article p:nth-of-type(4) {
         bottom: -33vw;
         left: -120px;
+        grid-column: 1 / span 2;
+        grid-row: 2;
     }
 
     section:nth-of-type(2) ol:first-of-type {
@@ -591,9 +591,14 @@ h5 {
         font-size: 15px;
     }
 
-    section {
+    section:first-of-type {
         grid-template-columns: 38vw 10px 20vw 10px 20vw 10px;
-        grid-template-rows: 5.5vw 5vw 3vw 2.5vw 7vw 5vw 13.1vw 1.0vw 5vw 20vw 1.2vw 240px
+        grid-template-rows: 5.5vw 5vw 3vw 2.5vw 7vw 5vw 13.1vw 1.0vw 5vw 25vw 1.2vw 240px
+    }
+
+    section:nth-of-type(2) {
+        grid-template-columns: 38vw 10px 20vw 10px 20vw 10px;
+        grid-template-rows: 5.5vw 5vw 3vw 2.5vw 7vw 5vw 13.1vw 1.0vw 5vw 22vw 1.2vw 240px
     }
 }
 
@@ -662,13 +667,12 @@ h5 {
         justify-content: center;
      }
 
-     main {
+     body > * {
         max-width: 1200px;
-        margin: 100px 100px;
      }
 
      section {
-        grid-template-columns: auto 10px 230px 10px 230px 10px;
+        grid-template-columns: auto 10px 230px 10px 230px;
         grid-template-rows: 60px repeat(2, 35px) 30px 80px 80px 155px 10px 45px 210px 10px 240px;
      }
 
